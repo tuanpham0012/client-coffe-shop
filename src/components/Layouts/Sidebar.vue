@@ -330,9 +330,9 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
+                  <router-link :to="{name:'portals-list'}" class="menu-link">
                     <div data-i18n="Basic Inputs">Khai báo hệ thống</div>
-                  </a>
+                  </router-link>
                 </li>
                 <li class="menu-item">
                   <a href="forms-input-groups.html" class="menu-link">
