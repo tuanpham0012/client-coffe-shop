@@ -25,7 +25,7 @@ export default {
     },
 
     actions: {
-        async getListPortal({commit}, {search, page = 1, per_page = 20}){
+        async getListPortal({commit}, {search, page = 1, per_page = 30}){
             commit('base/SET_LOADING_STATE', true, { root: true });
             await axios({
                 method: 'GET',

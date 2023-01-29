@@ -329,7 +329,7 @@
                 <div data-i18n="Form Elements">Hệ thống</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item active">
                   <router-link :to="{name:'portals-list'}" class="menu-link">
                     <div data-i18n="Basic Inputs">Khai báo hệ thống</div>
                   </router-link>

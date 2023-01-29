@@ -7,10 +7,11 @@ import store from './stores/store';
 
 // import Sidebar from './components/Layouts/Sidebar.vue'
 // import Navbar from './components/Layouts/NavBar.vue'
+import Loading from './components/LoadingScreens/Loading1.vue'
 
 const app = createApp(App)
 // app.component('Sidebar', Sidebar)
-// app.component('Navbar', Navbar)
+app.component('Loading', Loading)
 app.use(router)
 app.use(store)
 app.mount('#app')

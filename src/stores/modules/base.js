@@ -12,7 +12,7 @@ export default {
             countries: null,
             cities: null,
             districts: null,
-            ward: null,
+            wards: null,
         }
     },
 
@@ -29,8 +29,8 @@ export default {
         SET_DISTRICTS_LIST(state, payload){
             state.districts = payload;
         },
-        SET_WARD_LIST(state, payload){
-            state.ward = payload;
+        SET_WARDS_LIST(state, payload){
+            state.wards = payload;
         }
     },
 
@@ -39,52 +39,56 @@ export default {
             commit('SET_LOADING_STATE', true);
             await axios({
                 method: 'GET',
-                url: 'http://tenant-api.test/api/v1/countries/get_all', //url.url_country.RESOURCE, // 
+                url: url.url_location.COUNTRIES, // 
             }).then(res => {
                 console.log(res.data);
                 commit('SET_COUNTRIES_LIST', res.data);
                 commit('SET_LOADING_STATE', false);
               }).catch(err => {
                 console.log(err);
+                commit('SET_LOADING_STATE', false);
               })
         },
-        async getListCities({commit}){
+        async getListCities({commit},{country_id}){
             commit('SET_LOADING_STATE', true);
             await axios({
                 method: 'GET',
-                url: 'http://tenant-api.test/api/v1/cities/get_all', //url.url_country.RESOURCE, // 
+                url: url.url_location.CITIES + country_id, // 
             }).then(res => {
                 console.log(res.data);
-                commit('SET_COUNTRIES_LIST', res.data);
+                commit('SET_CITIES_LIST', res.data);
                 commit('SET_LOADING_STATE', false);
               }).catch(err => {
                 console.log(err);
+                commit('SET_LOADING_STATE', false);
              })
         },
-        async getListDistricts({commit}){
+        async getListDistricts({commit},{city_id}){
             commit('SET_LOADING_STATE', true);
             await axios({
                 method: 'GET',
-                url: 'http://tenant-api.test/api/v1/districts/get_all', //url.url_country.RESOURCE, // 
+                url: url.url_location.DISTRICTS + city_id, // 
             }).then(res => {
                 console.log(res.data);
-                commit('SET_COUNTRIES_LIST', res.data);
+                commit('SET_DISTRICTS_LIST', res.data);
                 commit('SET_LOADING_STATE', false);
               }).catch(err => {
                 console.log(err);
+                commit('SET_LOADING_STATE', false);
               })
         },
-        async getListWards({commit}){
+        async getListWards({commit}, {district_id}){
             commit('SET_LOADING_STATE', true);
             await axios({
                 method: 'GET',
-                url: 'http://tenant-api.test/api/v1/wards/get_all', //url.url_country.RESOURCE, // 
+                url: url.url_location.WARDS + district_id, // 
             }).then(res => {
                 console.log(res.data);
-                commit('SET_COUNTRIES_LIST', res.data);
+                commit('SET_WARDS_LIST', res.data);
                 commit('SET_LOADING_STATE', false);
               }).catch(err => {
                 console.log(err);
+                commit('SET_LOADING_STATE', false);
               })
         }
     }
