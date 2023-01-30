@@ -9,7 +9,7 @@
   -ms-touch-action: auto;
 }
 
-.ps:hover{
+.ps:hover, .ps:active, .ps:focus{
   overflow-y: overlay !important;
 }
 

@@ -8,15 +8,14 @@ export default {};
 </script>
 <style scoped>
 .container {
-  min-height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   width: calc(100% - 1px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e9e1e18e;
+  background: #e7e6e665;
   position: absolute;
   z-index: 1;
 }
@@ -35,14 +34,14 @@ export default {};
   syntax: "<number>";
 }
 .loader {
-  padding: 2rem 4rem;
+  padding: 0.875rem 2rem;
   font-family: monospace;
   font-weight: bold;
   color: rgb(28, 6, 105);
-    margin-bottom: 25rem;
+  margin-bottom: 20rem;
   border-style: solid;
-  border-width: 1vmin;
-  font-size: 2rem;
+  border-width: 0.275rem;
+  font-size: 1.375rem;
   --charge: hsl(var(--h, 0), 80%, 50%);
   -o-border-image: conic-gradient(
       var(--charge) var(--a),
@@ -55,7 +54,7 @@ export default {};
     )
     30;
   -webkit-animation: load 2s infinite ease-in-out;
-  animation: load 2s infinite ease-in-out;
+  animation: load 1.5s infinite ease-in-out;
 }
 @-webkit-keyframes load {
   0%,

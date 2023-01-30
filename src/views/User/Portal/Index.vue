@@ -50,14 +50,14 @@
               </tr>
             </tbody>
             <tbody v-else>
-              <Loading />
+              <td><Loading style="height:85%; width: 98%;"/></td>
             </tbody>
           </table>
         </div>
 
-        <div class="mt-2">
+        <div class="mt-2 align-center">
           <nav aria-label="Page navigation">
-                          <ul class="pagination pagination-sm">
+                          <ul class="pagination pagination-sm justify-content-center">
                             <li class="page-item prev">
                               <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-left"></i></a>
                             </li>

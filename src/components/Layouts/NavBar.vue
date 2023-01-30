@@ -4,7 +4,7 @@
             id="layout-navbar"
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none" @click="miniSide()">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)" @click="open()">
                 <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
@@ -108,6 +108,10 @@ const miniSideState = ref(false);
 const miniSide = () => {
 	let root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
     root.setAttribute( 'class', 'light-style layout-menu-fixed layout-menu-expanded' );
+}
+
+const open = () => {
+  document.getElementById("menu").setAttribute('style', 'overflow:auto !important');
 }
 </script>
 <style lang="">
