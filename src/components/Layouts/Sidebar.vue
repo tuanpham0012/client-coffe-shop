@@ -468,7 +468,6 @@ const toggleMenu = (e) => {
   listMenu.classList.add("ps--active-y");
   //console.log(e.currentTarget.classList);
   if (check == true && e.currentTarget != null) {
-    
     listMenu.classList.remove("ps--active-y");
     return;
   }
