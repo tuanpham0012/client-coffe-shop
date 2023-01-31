@@ -97,7 +97,7 @@
 
     <ul class="menu-inner py-1 ps" id="menu">
       <!-- Dashboard -->
-      <li class="menu-item active">
+      <li class="menu-item">
         <a href="index.html" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
@@ -368,7 +368,7 @@
         <span class="menu-header-text">Forms &amp; Hệ thống</span>
       </li>
       <!-- Forms -->
-      <li class="menu-item" @click="toggleMenu($event)">
+      <li class="menu-item" :class="{ 'active' : true}" @click="toggleMenu($event)" data-list="true">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-detail"></i>
           <div data-i18n="Form Elements">Hệ thống</div>
@@ -445,32 +445,31 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter();
+const route = useRoute();
+console.log(route.name);
 const toggleMenu = (e) => {
-  console.log(e.target.tagName);
-  
-  console.log(e.currentTarget.classList);
-  let check = false;
   const classList = e.currentTarget.classList;
+  var checkOpen = false;
   classList.forEach((element) => {
     if (element == "open") {
-      check = true;
+      classList.remove("open");
+      document.getElementById("menu").classList.remove("ps--active-y");
+      checkOpen = true;
+      return;
     }
   });
-  
-  if (e.currentTarget != null) {
-    const menuItem = document.querySelectorAll(".menu-item");
-    [].forEach.call(menuItem, function (el) {
-      el.classList.remove("open");
-    });
-  }
-
-  const listMenu = document.getElementById("menu");
-  listMenu.classList.add("ps--active-y");
-  //console.log(e.currentTarget.classList);
-  if (check == true && e.currentTarget != null) {
-    listMenu.classList.remove("ps--active-y");
+  if(checkOpen){
     return;
   }
+  const menuItem = document.querySelectorAll(".menu-item.open");
+  [].forEach.call(menuItem, function (el) {
+    el.classList.remove("open");
+  });
+  
+  const listMenu = document.getElementById("menu");
+  listMenu.classList.add("ps--active-y");
   e.currentTarget.classList.add("open");
 };
 

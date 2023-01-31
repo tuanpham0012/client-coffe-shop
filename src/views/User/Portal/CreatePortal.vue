@@ -234,7 +234,7 @@ const props = defineProps({
   },
 });
 
-const emits = defineEmits(["cancel-data"], ['success']);
+const emits = defineEmits(["cancel-data"], ["success"]);
 
 const store = useStore();
 const cities = computed(() => store.state.base.cities ?? []);
@@ -289,7 +289,7 @@ watch(
   () => ({ ...portal }),
   (newValue, oldValue) => {
     // console.log(oldValue);
-    // console.log(newValue);
+    console.log(newValue);
     if (newValue.city_id != oldValue.city_id && newValue.city_id != -1) {
       //portal.district_id = -1;
       getListDistrict();
@@ -391,7 +391,7 @@ const save = () => {
     })
       .then((res) => {
         console.log(res.data);
-        emits('success');
+        emits("success");
       })
       .catch((err) => {
         console.log(err);
@@ -399,7 +399,7 @@ const save = () => {
   } else {
     axios({
       method: "PUT",
-      url: url_portal.RESOURCE + '/' + portal.id,
+      url: url_portal.RESOURCE + "/" + portal.id,
       data: {
         id: portal.id,
         name: portal.name,
@@ -424,7 +424,7 @@ const save = () => {
     })
       .then((res) => {
         console.log(res.data);
-        emits('success');
+        emits("success");
       })
       .catch((err) => {
         console.log(err);
